@@ -21,7 +21,7 @@
                   <Insets top="25.0" />
                </VBox.margin>
             </Label>
-            <Rectangle fx:id="color" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="13.0" stroke="BLACK" strokeType="INSIDE" width="13.0">
+            <Rectangle fx:id="color" arcHeight="5.0" arcWidth="5.0" fill="RED" height="13.0" stroke="BLACK" strokeType="INSIDE" width="13.0">
                <VBox.margin>
                   <Insets top="13.0" />
                </VBox.margin>

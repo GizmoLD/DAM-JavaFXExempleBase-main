@@ -11,9 +11,6 @@ public class ControllerListItem {
     @FXML
     private Label text = new Label();
 
-    //@FXM
-    //private Label data = new Label();
-
     public void setText(String text) {
         // Estableix el contingut del Label
         this.text.setText(text);
@@ -27,10 +24,4 @@ public class ControllerListItem {
         // Estableix la imatge a l'ImageView
         img.setImage(image);
     }
-
-    /*
-    public void setData(String data) {
-        this.text
-    }
-     */
 }

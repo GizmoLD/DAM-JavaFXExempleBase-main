@@ -9,7 +9,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
 
-
 public class ControllerInfoItem {
     @FXML
     private ImageView img;
@@ -22,6 +21,12 @@ public class ControllerInfoItem {
 
     @FXML
     private Rectangle color = new Rectangle();
+
+    public void setRectangle(String a) {
+        //this.color.set();
+        Rectangle rectangulo = new Rectangle(200, 100);
+        rectangulo.setFill(null);;
+    }
 
     //
     //
@@ -75,19 +80,20 @@ public class ControllerInfoItem {
     }
 
     public void setProcesador(String procesador){
-        this.procesador.setText(procesador);
+        this.procesador.setText(""+procesador);
     }
 
     public void setVenudes(int venudes){
         this.procesador.setText(""+venudes);
     }
 
-    public void setAny(String any){
-        this.any.setText(any);
+    public void setAny(int any){
+        this.any.setText(""+any);
     }
 
-
-
+    public void setDescripcio(String descripcion){
+        this.descripcio.setText(descripcion);
+    }
     //
     //
     //

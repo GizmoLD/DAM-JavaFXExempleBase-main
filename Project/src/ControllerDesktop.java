@@ -143,6 +143,7 @@ public class ControllerDesktop implements Initializable {
                 itemController = loader.getController();
                 itemController.setImage("assets/images/" + dades.getString("imatge"));
                 itemController.setTitle(dades.getString("nom"));
+                itemController.setData(dades.getString("data"));
                 itemController.setProcesador(dades.getString("procesador"));
                 itemController.setVenudes(dades.getInt("venudes"));
 
@@ -166,9 +167,9 @@ public class ControllerDesktop implements Initializable {
                 itemTemplate = loader.load();
                 itemController = loader.getController();
                 itemController.setImage("assets/images/" + dades.getString("imatge"));
-                itemController.setTitle(dades.getString("nom"));
-                itemController.setText(dades.getString("procesador"));
-                itemController.setText(dades.getString("venudes"));
+                itemController.setAny(dades.getInt("any"));
+                itemController.setTitle(dades.getString("tipus"));
+                itemController.setDescripcio(dades.getString("descripcio"));
 
                 // Afegeix la informació a la vista
                 info.getChildren().add(itemTemplate);
@@ -183,15 +184,14 @@ public class ControllerDesktop implements Initializable {
                 System.out.println(e);
             }
         } else if (type=="Personatges") {
-            resource = this.getClass().getResource("assets/template_info_personatges.fxml");
+            resource = this.getClass().getResource("assets/template_info_personatge.fxml");
             try {
                 loader = new FXMLLoader(resource);
                 itemTemplate = loader.load();
                 itemController = loader.getController();
                 itemController.setImage("assets/images/" + dades.getString("imatge"));
                 itemController.setTitle(dades.getString("nom"));
-                itemController.setText(dades.getString("procesador"));
-                itemController.setText(dades.getString("venudes"));
+                itemController.setText(dades.getString("nom_del_videojoc"));
 
                 // Afegeix la informació a la vista
                 info.getChildren().add(itemTemplate);
@@ -205,10 +205,6 @@ public class ControllerDesktop implements Initializable {
             } catch (Exception e) {
                 System.out.println(e);
             }
-
         }
-        System.out.println("ADIOOOOOOOOOOOOOOOOOS");
-
-        // Carregar la llista amb les dades
     }
 }
