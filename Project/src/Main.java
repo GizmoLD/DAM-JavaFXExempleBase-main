@@ -47,6 +47,8 @@ public class Main extends Application {
             Image icon = new Image("file:assets/icons/icon.png");
             stage.getIcons().add(icon);
         }
+
+        
     }
 
     private void _setLayout(int width) {
