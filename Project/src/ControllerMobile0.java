@@ -87,13 +87,9 @@ public class ControllerMobile0 implements Initializable { // implements Initiali
         CompletableFuture<Void> allFutures = CompletableFuture.allOf(consolesFuture, jocsFuture, personatgesFuture);
 
         try {
-            // Esperar a que todas las tareas se completen
             allFutures.get();
-            // Todas las tareas se han completado aquí
-            // Haz lo que necesites con los datos cargados
         } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
-            // Manejar cualquier excepción que pueda ocurrir durante la carga de datos
         }
 
         retrocederM1 = false;
@@ -124,10 +120,6 @@ public class ControllerMobile0 implements Initializable { // implements Initiali
                                 selectedItem1 = listaMenu0.getSelectionModel().getSelectedItem();
                                 index = opcionsMenu1.indexOf(selectedItem1);
                             }
-
-                            //listaMenu0.setVisible(false);
-
-                            // showInfo();
                         });
 
                         break;
@@ -138,10 +130,6 @@ public class ControllerMobile0 implements Initializable { // implements Initiali
                         listaMenu0.setOnMouseClicked(innerEvent -> {
                             selectedItem1 = listaMenu0.getSelectionModel().getSelectedItem();
                             index = opcionsMenu1.indexOf(selectedItem1);
-
-                            //listaMenu0.setVisible(false);
-
-                            // showInfo();
                         });
                         break;
                     case "Consoles":
@@ -151,19 +139,13 @@ public class ControllerMobile0 implements Initializable { // implements Initiali
                         listaMenu0.setOnMouseClicked(innerEvent -> {
                             selectedItem1 = listaMenu0.getSelectionModel().getSelectedItem();
                             index = opcionsMenu1.indexOf(selectedItem1);
-
-                            //listaMenu0.setVisible(false);
-
-                            // showInfo();
                         });
                         break;
                     default:
                         break;
                 }
             }
-
         });
-
         retrocederMenu0.setOnAction(e -> {
             retrocederM1 = true;
             showMenu0();
@@ -180,7 +162,6 @@ public class ControllerMobile0 implements Initializable { // implements Initiali
     public void showList(String choiceBox) {
         AppData appData = AppData.getInstance();
         JSONArray dades = appData.getData(choiceBox);
-        System.out.println(dades);
         for (int i = 0; i < dades.length(); i++) {
             JSONObject consoleObject = dades.getJSONObject(i);
 
@@ -216,73 +197,13 @@ public class ControllerMobile0 implements Initializable { // implements Initiali
                 itemController.setData(dades.getString("data"));
                 itemController.setProcesador(dades.getString("procesador"));
                 itemController.setVenudes(dades.getInt("venudes"));
-
-                // Afegeix la informació a la vista
-                //
-                //
-                // info.getChildren().add(itemTemplate);
-                //
-                //
-
-                // Estableix que la mida de itemTemplaate s'ajusti a la mida de info
                 AnchorPane.setTopAnchor(itemTemplate, 0.0);
                 AnchorPane.setRightAnchor(itemTemplate, 0.0);
                 AnchorPane.setBottomAnchor(itemTemplate, 0.0);
                 AnchorPane.setLeftAnchor(itemTemplate, 0.0);
-
             } catch (Exception e) {
                 System.out.println(e);
             }
-
         }
-        /*
-         * else if (type == "Jocs") {
-         * resource = this.getClass().getResource("assets/template_info_jocs.fxml");
-         * try {
-         * loader = new FXMLLoader(resource);
-         * itemTemplate = loader.load();
-         * itemController = loader.getController();
-         * itemController.setImage("assets/images/" + dades.getString("imatge"));
-         * itemController.setAny(dades.getInt("any"));
-         * itemController.setTitle(dades.getString("tipus"));
-         * itemController.setDescripcio(dades.getString("descripcio"));
-         * 
-         * // Afegeix la informació a la vista
-         * info.getChildren().add(itemTemplate);
-         * 
-         * // Estableix que la mida de itemTemplaate s'ajusti a la mida de info
-         * AnchorPane.setTopAnchor(itemTemplate, 0.0);
-         * AnchorPane.setRightAnchor(itemTemplate, 0.0);
-         * AnchorPane.setBottomAnchor(itemTemplate, 0.0);
-         * AnchorPane.setLeftAnchor(itemTemplate, 0.0);
-         * 
-         * } catch (Exception e) {
-         * System.out.println(e);
-         * }
-         * } else if (type == "Personatges") {
-         * resource =
-         * this.getClass().getResource("assets/template_info_personatge.fxml");
-         * try {
-         * loader = new FXMLLoader(resource);
-         * itemTemplate = loader.load();
-         * itemController = loader.getController();
-         * itemController.setImage("assets/images/" + dades.getString("imatge"));
-         * itemController.setTitle(dades.getString("nom"));
-         * itemController.setText(dades.getString("nom_del_videojoc"));
-         * 
-         * // Afegeix la informació a la vista
-         * info.getChildren().add(itemTemplate);
-         * 
-         * // Estableix que la mida de itemTemplaate s'ajusti a la mida de info
-         * AnchorPane.setTopAnchor(itemTemplate, 0.0);
-         * AnchorPane.setRightAnchor(itemTemplate, 0.0);
-         * AnchorPane.setBottomAnchor(itemTemplate, 0.0);
-         * AnchorPane.setLeftAnchor(itemTemplate, 0.0);
-         * 
-         * } catch (Exception e) {
-         * System.out.println(e);
-         * }
-         * }
-         */
     }
 }
