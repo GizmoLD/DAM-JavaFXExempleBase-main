@@ -3,7 +3,11 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.nio.charset.StandardCharsets;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.function.Consumer;
+
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -23,6 +27,32 @@ public class AppData {
 
     private AppData() {
     }
+
+    //
+    //
+    //
+
+    public void loadAllData(Consumer<String> callBack) {
+    ExecutorService executor = Executors.newFixedThreadPool(3);
+
+    CompletableFuture<Void> consolesFuture = CompletableFuture.runAsync(() -> load("Consoles", null), executor);
+    CompletableFuture<Void> jocsFuture = CompletableFuture.runAsync(() -> load("Jocs", null), executor);
+    CompletableFuture<Void> personatgesFuture = CompletableFuture.runAsync(() -> load("Personatges", null), executor);
+
+    CompletableFuture<Void> allFutures = CompletableFuture.allOf(consolesFuture, jocsFuture, personatgesFuture);
+
+    allFutures.thenRun(() -> {
+        // Todas las tareas se han completado aquí
+        callBack.accept("OK");
+        executor.shutdown(); // Cerrar el ExecutorService después de completar todas las tareas
+    });
+}
+
+
+    //
+    //
+    //
+
 
     public static AppData getInstance() {
         if (instance == null) {
@@ -76,6 +106,7 @@ public class AppData {
     }
 
     JSONArray getData(String type) {
+        System.out.println(type);
         switch (type) {
             case "Consoles":
                 return dataConsoles;

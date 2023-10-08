@@ -102,7 +102,6 @@ public class ControllerDesktop implements Initializable {
                 yPane.getChildren().add(itemTemplate);
             }
         }
-
     }
 
     public void showLoading() {
@@ -146,6 +145,9 @@ public class ControllerDesktop implements Initializable {
                 itemController.setData(dades.getString("data"));
                 itemController.setProcesador(dades.getString("procesador"));
                 itemController.setVenudes(dades.getInt("venudes"));
+                itemController.setRectangle(dades.getString("color"));
+                
+
 
                 // Afegeix la informació a la vista
                 info.getChildren().add(itemTemplate);
@@ -170,6 +172,7 @@ public class ControllerDesktop implements Initializable {
                 itemController.setAny(dades.getInt("any"));
                 itemController.setTitle(dades.getString("tipus"));
                 itemController.setDescripcio(dades.getString("descripcio"));
+                itemController.setG();
 
                 // Afegeix la informació a la vista
                 info.getChildren().add(itemTemplate);
@@ -192,6 +195,7 @@ public class ControllerDesktop implements Initializable {
                 itemController.setImage("assets/images/" + dades.getString("imatge"));
                 itemController.setTitle(dades.getString("nom"));
                 itemController.setText(dades.getString("nom_del_videojoc"));
+                itemController.setRectangle(dades.getString("color"));
 
                 // Afegeix la informació a la vista
                 info.getChildren().add(itemTemplate);

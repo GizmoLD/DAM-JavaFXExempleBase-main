@@ -15,7 +15,7 @@
             <ImageView fx:id="img" fitHeight="175.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
             <Label fx:id="title" alignment="CENTER" text="Nom">
                <font>
-                  <Font size="20.0" />
+                  <Font name="System Bold" size="20.0" />
                </font>
                <VBox.margin>
                   <Insets top="25.0" />
@@ -26,7 +26,7 @@
                   <Insets />
                </VBox.margin>
             </Rectangle>
-            <Label fx:id="data" alignment="TOP_CENTER" text="data" wrapText="true">
+            <Label fx:id="data" alignment="TOP_CENTER" text="data" textFill="#b5b5b5" wrapText="true">
                <padding>
                   <Insets left="25.0" right="25.0" />
                </padding>
@@ -34,7 +34,10 @@
                   <Insets />
                </VBox.margin>
             </Label>
-            <Label fx:id="procesador" text="procesador" />
+            <Label fx:id="procesador" text="procesador">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
             <Label fx:id="venudes" text="venudes" />
          </children>
       </VBox>

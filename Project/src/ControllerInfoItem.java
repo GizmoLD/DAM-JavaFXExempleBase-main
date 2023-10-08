@@ -8,6 +8,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.TextFlow;
 
 public class ControllerInfoItem {
     @FXML
@@ -22,10 +23,13 @@ public class ControllerInfoItem {
     @FXML
     private Rectangle color = new Rectangle();
 
-    public void setRectangle(String a) {
-        //this.color.set();
-        Rectangle rectangulo = new Rectangle(200, 100);
-        rectangulo.setFill(null);;
+    public void setRectangle(String color) {
+        this.color.setStyle("-fx-fill: "+color+";");
+    }
+
+    public void setG(){
+        TextFlow textFlow = new TextFlow();
+        this.descripcio.setGraphic(textFlow);
     }
 
     //
@@ -84,7 +88,7 @@ public class ControllerInfoItem {
     }
 
     public void setVenudes(int venudes){
-        this.procesador.setText(""+venudes);
+        this.venudes.setText(""+venudes);
     }
 
     public void setAny(int any){
