@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -28,12 +29,32 @@ public class ControllerMobile0 implements Initializable { // implements Initiali
     @FXML
     private Label myLabel;
 
-    String[] opcions = { "Personatges", "Jocs", "Consoles" };
+    @FXML
+    private Button retrocederMenu0;
+
+    private List<String> opcions = new ArrayList<>();
+
+    private List<String> opcionsMenu1 = new ArrayList<>();
 
     String current;
 
+    private boolean retrocederM1;
+    private boolean retrocederM2;
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) { // throws Exception
+        retrocederM1 = false;
+        retrocederM2 = false;
+
+        retrocederMenu0.setVisible(false);
+
+        listaMenu0.getItems().clear();
+
+        opcions.add("Personatges");
+        opcions.add("Jocs");
+        opcions.add("Consoles");
+
         listaMenu0.getItems().addAll(opcions);
 
         listaMenu0.setOnMouseClicked(event -> {
@@ -44,10 +65,9 @@ public class ControllerMobile0 implements Initializable { // implements Initiali
                     case "Personatges":
                         // Cargar la pestaña de Personajes
                         //loadTab("Personajes.fxml");                        
+                        listaMenu0.getItems().clear();
                         showList("Personatges");
-                        
-
-                        
+                        retrocederMenu0.setVisible(true);
                         break;
                     case "Juegos":
                         // Cargar la pestaña de Juegos
@@ -62,6 +82,20 @@ public class ControllerMobile0 implements Initializable { // implements Initiali
                 }
             }
         });
+
+        retrocederMenu0.setOnAction(e -> {
+            showMenu0();
+        });
+        
+    }
+
+
+
+
+    public void showMenu0(){
+        retrocederMenu0.setVisible(false);
+        listaMenu0.getItems().clear();
+        listaMenu0.getItems().addAll(opcions);
 
     }
 
@@ -110,15 +144,16 @@ public class ControllerMobile0 implements Initializable { // implements Initiali
                 */
                 //yPane.getChildren().add(itemTemplate);
                 System.out.println("bandera 4");
-                lista.add(nom);
+                opcionsMenu1.add(nom);
                 //listaMenu1.getItems().add(nom);
             }
         }
 
         
         System.out.println("bandera5");
+        //listaMenu0.getItems().addAll(opcions);
 
-        listaMenu1.getItems().addAll(lista);
+        listaMenu0.getItems().addAll(opcionsMenu1);
         //String[] os = { "Personatges", "Jocs", "Consoles" };
         //listaMenu1.getItems().addAll(os);
         System.out.println(lista);
